@@ -3,6 +3,7 @@ export const fetchCategories = async () => {
     "https://openapi.programming-hero.com/api/news/categories",
   );
   const data = await res.json();
+
   return data.data;
 };
 

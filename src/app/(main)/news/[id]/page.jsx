@@ -1,10 +1,10 @@
 import RightSideBar from "@/components/HomePage/RightSideBar";
+import NewsDetailsSkeleton from "@/components/Skeleton/NewsDetailsSkeleton";
 import { fetchNewsDetailsById } from "@/lib/dataFatch";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-
 
 export const generateMetadata = async ({ params }) => {
   const { id } = await params;
@@ -19,7 +19,7 @@ export const generateMetadata = async ({ params }) => {
 const NewsDetails = async ({ params }) => {
   const { id } = await params;
   const newsDetails = await fetchNewsDetailsById(id);
-  
+
   return (
     <div className="mx-5 xl:mx-0">
       <div className="w-full max-w-360  mx-auto ">
